@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class chatbotMain {
 
 	public static void main(String[] args) {
+		
 		int levelOfHapinness = 10;
 		
 		String request = "How can I help you?";
