@@ -14,11 +14,15 @@ public class chatbotMain {
 		Scanner in = new Scanner(System.in);
 		String userInput = in.nextLine();
 		
-		//System.out.println(userInput);
+		if (userInput.length() > 3) {
+			System.out.println("I am glad to talk with you.");
+		} else {
+			System.out.println("Did you said " + userInput + "?");
+		}
 		
-		System.out.println("Did you said " + userInput + "?");
 		userInput = in.nextLine();
-		System.out.println("That's great");
 		
+		System.out.printf(String.format("That's great, I am happy is %d and yours?%n", levelOfHapinness));
+		System.out.println("?");
 	}	
 }
