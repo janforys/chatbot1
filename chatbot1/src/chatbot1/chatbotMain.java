@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class chatbotMain {
 	
-	public static String getResponse(int levelOfHappiness) {
+	private static String getResponse(int levelOfHappiness) {
 		
 		String defaultResponse = "That's great!";
 		String happySign = "<3";
@@ -18,20 +18,19 @@ public class chatbotMain {
 	
 	public static void main(String[] args) {
 		
-		int levelOfHappiness = 10;
+		EmotionAnalyzer emotionAnalyzer = new EmotionAnalyzer();
 		String request = "How can I help you?";
 		
-		while(true) {	
+		while (true) {	
 			
 		System.out.println(request);
+		
 		Scanner in = new Scanner(System.in);
 		String userInput = in.nextLine();
 		
-		if (userInput.length() > 3) {
-			levelOfHappiness++;
-		}
+		emotionAnalyzer.analyzeInput(userInput);
 		
-		String response = getResponse(levelOfHappiness);		
+		String response = getResponse(emotionAnalyzer.levelOfHappiness);		
 		System.out.println(response);		
 		}	
 	}	
