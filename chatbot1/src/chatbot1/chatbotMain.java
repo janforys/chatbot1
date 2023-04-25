@@ -3,13 +3,23 @@ package chatbot1;
 import java.util.Scanner;
 
 public class chatbotMain {
-
-	public static void main(String[] args) {
+	
+	public static String getResponse(int levelOfHappiness) {
 		
-		int levelOfHapinness = 10;
-		String request = "How can I help you?";
 		String defaultResponse = "That's great!";
 		String happySign = "<3";
+		String response = defaultResponse;
+		
+		if (levelOfHappiness > 11) {
+			response += ' ' + happySign;
+		}
+		return response;
+	}
+	
+	public static void main(String[] args) {
+		
+		int levelOfHappiness = 10;
+		String request = "How can I help you?";
 		
 		while(true) {	
 			
@@ -18,18 +28,11 @@ public class chatbotMain {
 		String userInput = in.nextLine();
 		
 		if (userInput.length() > 3) {
-			levelOfHapinness++;
+			levelOfHappiness++;
 		}
 		
-		String response = defaultResponse;
-		
-		if (levelOfHapinness > 11) {
-			response = response + ' ' + happySign;
-		}
-		
-		System.out.println(response);
-		
-		}
-		
+		String response = getResponse(levelOfHappiness);		
+		System.out.println(response);		
+		}	
 	}	
 }
