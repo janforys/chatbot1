@@ -8,7 +8,7 @@ public class chatbotMain {
 		
 		String[] responses = { "Thats great", "You're awesome", "Nice to hear it" };
 		String defaultResponse = responses[iteration % responses.length];
-		String happySign = "<3";
+		String happySign = ",,|,,";
 		String response = defaultResponse;
 		
 		if (levelOfHappiness > 11) {

@@ -1,14 +1,20 @@
 package chatbot1;
 
+import java.util.List;
+
 class EmotionAnalyzer {
 	
 	int levelOfHappiness = 10; 
 	
 	public void analyzeInput(String userInput) throws Exception {
-		if (userInput.length() == 0) {
+		
+		List<String> words = List.of(userInput.split(" "));
+		
+		if (words.size() == 0) {
 			throw new Exception("Empty input");
 		}
-		if (userInput.length() > 3) {
+		
+		if (words.size() > 1) {
 			levelOfHappiness++;
 		}
 	}
