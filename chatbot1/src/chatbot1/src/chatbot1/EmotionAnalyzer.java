@@ -1,4 +1,4 @@
-package chatbot1;
+package chatbot1.src.chatbot1;
 
 import java.util.List;
 
