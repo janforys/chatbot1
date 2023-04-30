@@ -19,19 +19,21 @@ public class chatbotMain {
 	public static void main(String[] args) {
 		
 		EmotionAnalyzer emotionAnalyzer = new EmotionAnalyzer();
+		Scanner in = new Scanner(System.in);
 		String request = "How can I help you?";
-		
-		while (true) {	
-			
 		System.out.println(request);
 		
-		Scanner in = new Scanner(System.in);
-		String userInput = in.nextLine();
-		
-		emotionAnalyzer.analyzeInput(userInput);
-		
-		String response = getResponse(emotionAnalyzer.levelOfHappiness);		
-		System.out.println(response);		
+		while (true) {		
+			String userInput = in.nextLine();
+			String response;
+			
+			try {
+				emotionAnalyzer.analyzeInput(userInput);
+				response = chatbotMain.getResponse(emotionAnalyzer.levelOfHappiness);
+			} catch (Exception e) {
+				response = "What did you said ?";
+			}
+			System.out.println(response);
 		}	
 	}	
 }
