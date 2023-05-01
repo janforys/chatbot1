@@ -2,6 +2,8 @@ package chatbot1.src.chatbot1;
 
 import java.util.List;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 class EmotionAnalyzer {
 
@@ -10,20 +12,14 @@ class EmotionAnalyzer {
     int levelOfAnger = 10;
     Set<String> specialHappinessWords = Set.of("great", "super", "fantastic", "awesome", "funny");
 
-    int getEmotionLevel(Emotion emotion) {
-    	switch (emotion) {
-	    	case HAPPINESS -> {
-	    		return levelOfHappiness;
-	    	}
-	    	case SADNESS -> {
-	    		return levelOfSadness;
-	    	}
-	    	case ANGER -> {
-	    		return levelOfAnger;
-	    	}
-    	}
-		return 0;
+    Map<Emotion, Integer> getEmotionsLevels() {
+    	Map<Emotion, Integer> emotionsLevels = new HashMap<>();
+    	emotionsLevels.put(Emotion.HAPPINESS, levelOfHappiness);
+    	emotionsLevels.put(Emotion.SADNESS, levelOfSadness);
+    	emotionsLevels.put(Emotion.ANGER, levelOfAnger);
+    	return emotionsLevels;
     }
+    
     
     void analyzeInput(String userInput) throws Exception {
     	

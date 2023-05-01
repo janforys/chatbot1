@@ -1,15 +1,17 @@
 package chatbot1.src.chatbot1;
 
 import java.util.Scanner;
+import java.util.Map;
 
 public class chatbotMain {
 
-    private static String getResponse(int levelOfHappiness, int iteration) {
+    private static String getResponse(Map<Emotion, Integer>emotions ,int iteration) {
     	
         String[] responses = {"That's great", "You are awesome!", "Nice to hear it"};
         String defaultResponse = responses[iteration % responses.length];
         String happySign = ",,|,,";
         String response = defaultResponse;
+        int levelOfHappiness = emotions.get(Emotion.HAPPINESS);
 
         if (levelOfHappiness > 11) {
             response += ' ' + happySign;
@@ -32,7 +34,7 @@ public class chatbotMain {
 
             try {
                 emotionAnalyzer.analyzeInput(userInput);
-                response = getResponse(emotionAnalyzer.levelOfHappiness, iteration);
+                response = getResponse(emotionAnalyzer.getEmotionsLevels(), iteration);
             } catch (Exception e) {
                 response = "What did you said?";
             }
