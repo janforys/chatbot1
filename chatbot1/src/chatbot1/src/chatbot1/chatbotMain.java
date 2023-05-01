@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class chatbotMain {
 
     private static String getResponse(int levelOfHappiness, int iteration) {
-        String[] responses = {"That's great", "You are awesome!",
-                "Nice to hear it"};
-
+    	
+        String[] responses = {"That's great", "You are awesome!", "Nice to hear it"};
         String defaultResponse = responses[iteration % responses.length];
         String happySign = ",,|,,";
         String response = defaultResponse;
@@ -15,11 +14,12 @@ public class chatbotMain {
         if (levelOfHappiness > 11) {
             response += ' ' + happySign;
         }
-
+        
         return response;
     }
 
     public static void main(String[] args) {
+    	
         EmotionAnalyzer emotionAnalyzer = new EmotionAnalyzer();
         Scanner in = new Scanner(System.in);
         int iteration = 0;
@@ -41,4 +41,5 @@ public class chatbotMain {
             iteration++;
         }
     }
+    
 }
