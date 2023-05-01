@@ -6,8 +6,25 @@ import java.util.Set;
 class EmotionAnalyzer {
 
     int levelOfHappiness = 10;
-    Set<String> specialWords = Set.of("great", "super", "fantastic", "awesome", "funny");
+    int levelOfSadness = 10;
+    int levelOfAnger = 10;
+    Set<String> specialHappinessWords = Set.of("great", "super", "fantastic", "awesome", "funny");
 
+    int getEmotionLevel(Emotion emotion) {
+    	switch (emotion) {
+	    	case HAPPINESS -> {
+	    		return levelOfHappiness;
+	    	}
+	    	case SADNESS -> {
+	    		return levelOfSadness;
+	    	}
+	    	case ANGER -> {
+	    		return levelOfAnger;
+	    	}
+    	}
+		return 0;
+    }
+    
     void analyzeInput(String userInput) throws Exception {
     	
         List<String> words = List.of(userInput.split(" "));
@@ -17,7 +34,7 @@ class EmotionAnalyzer {
         }
         
         for (String word : words) {
-        	if (specialWords.contains(word)) {
+        	if (specialHappinessWords.contains(word.toLowerCase())) {
         		levelOfHappiness++;
         	}
         }
