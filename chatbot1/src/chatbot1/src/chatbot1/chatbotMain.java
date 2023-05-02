@@ -2,19 +2,35 @@ package chatbot1.src.chatbot1;
 
 import java.util.Scanner;
 import java.util.Map;
+import java.util.*;
 
 public class chatbotMain {
 
     private static String getResponse(Map<Emotion, Integer>emotions ,int iteration) {
     	
+    	List<Rules> rules = new ArrayList<>();
         String[] responses = {"That's great", "You are awesome!", "Nice to hear it"};
+        
         String defaultResponse = responses[iteration % responses.length];
-        String happySign = ",,|,,";
+        String happySign = "<3";
+        String angrySign = ",,|,,";
         String response = defaultResponse;
         int levelOfHappiness = emotions.get(Emotion.HAPPINESS);
+        int levelOfAnger = emotions.get(Emotion.ANGER);
 
         if (levelOfHappiness > 11) {
-            response += ' ' + happySign;
+            response += " " + happySign;
+        }
+        
+        if (levelOfAnger > 11) {
+            response += " " + angrySign;
+        }
+        
+        for (Rules rule : rules) {
+        	if (rule.isSatisfied()) {
+        		response += rule.applyEnding();
+        		break;
+        	}
         }
         
         return response;

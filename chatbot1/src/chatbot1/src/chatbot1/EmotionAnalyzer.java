@@ -10,8 +10,10 @@ class EmotionAnalyzer {
     int levelOfHappiness = 10;
     int levelOfSadness = 10;
     int levelOfAnger = 10;
+    
     Set<String> specialHappinessWords = Set.of("great", "super", "fantastic", "awesome", "funny");
-
+    Set<String> specialAngerWords = Set.of("stupid", "whatever", "worst", "poor", "dumb");
+    
     Map<Emotion, Integer> getEmotionsLevels() {
     	Map<Emotion, Integer> emotionsLevels = new HashMap<>();
     	emotionsLevels.put(Emotion.HAPPINESS, levelOfHappiness);
@@ -19,7 +21,6 @@ class EmotionAnalyzer {
     	emotionsLevels.put(Emotion.ANGER, levelOfAnger);
     	return emotionsLevels;
     }
-    
     
     void analyzeInput(String userInput) throws Exception {
     	
