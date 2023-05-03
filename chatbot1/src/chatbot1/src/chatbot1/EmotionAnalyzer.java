@@ -33,8 +33,11 @@ class EmotionAnalyzer {
         for (String word : words) {
         	if (specialHappinessWords.contains(word.toLowerCase())) {
         		levelOfHappiness++;
+        	} else if 
+        		(specialAngerWords.contains(word.toLowerCase())) {
+        		levelOfAnger++;
+        		}
         	}
         }
-    }
     
 }
